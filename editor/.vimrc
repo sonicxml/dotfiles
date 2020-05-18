@@ -1,1 +1,1 @@
-source /Users/tgandhi/.config/nvim/init.vim
+source /Users/username/.config/nvim/init.vim

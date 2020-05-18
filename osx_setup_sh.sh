@@ -4,6 +4,8 @@ echo "Please enter your name: "
 read $name
 echo "Please enter your email: "
 read $email
+echo "What would you like to call your default venv?"
+read $venv
 
 echo Install all AppStore Apps first!
 # no solution to automate AppStore installs
@@ -102,9 +104,13 @@ ln -s shell/tmux/.tmux.conf ~/.tmux.conf
 ln -s shell/zsh/.zshrc ~/.zshrc
 ln -s shell/zsh/.p10k.zsh ~/.p10k.zsh
 
-# Replace gitconfig settings
-sed "s/name = John Doe/name = $name/" shell/git/.gitconfig
-sed "s/email = example@email.com/email = $email/" shell/git/.gitconfig
+# All the replacements
+sed -i '' "s/name = John Doe/name = $name/" shell/git/.gitconfig
+sed -i '' "s/email = example@email.com/email = $email/" shell/git/.gitconfig
+sed -i '' "s/venv/$venv/g" editor/.config/nvim/coc-settings.json
+sed -i '' "s/venv/$venv/g" editor/.config/nvim/init.vim
+sed -i '' "s/username/$USER/g" editor/.vimrc
+sed -i '' "s/username/$USER/g" editor/.config/nvim/coc-settings.json
 
 # Create python venv
 export WORKON_HOME=$HOME/.virtualenvs
@@ -113,5 +119,5 @@ export VIRTUALENVWRAPPER_PYTHON=/usr/local/opt/python@3.8/bin/python3.8
 export VIRTUALENVWRAPPER_VIRTUALENV=/usr/local/bin/virtualenv
 source /usr/local/bin/virtualenvwrapper.sh
 
-workon venv
+workon $venv
 pip install black isort jedi pylint
