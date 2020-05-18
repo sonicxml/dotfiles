@@ -1,10 +1,10 @@
 {
-    "python.pythonPath": "~/.virtualenvs/venv/bin/python",
+    "python.pythonPath": "~/.virtualenvs/VENV/bin/python",
     "python.jediEnabled": true,
     "python.linting.pylintEnabled": true,
     "python.formatting.provider": "black",
-    "python.formatting.blackPath": "~/.virtualenvs/venv/bin/black",
-    "python.sortImports.path": "/Users/username/.virtualenvs/venv/bin/isort",
+    "python.formatting.blackPath": "~/.virtualenvs/VENV/bin/black",
+    "python.sortImports.path": "/Users/USER/.virtualenvs/VENV/bin/isort",
     "python.venvFolders": ["~/.virtualenvs"],
     "coc.preferences.formatOnSaveFiletypes": [ "python" ]
 }

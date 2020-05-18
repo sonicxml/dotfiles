@@ -87,7 +87,7 @@ let g:lightline = {
 " map <C-o> :NERDTreeToggle<CR>
 
 " Coc
-let g:python3_host_prog = '~/.virtualenvs/venv/bin/python'
+let g:python3_host_prog = '~/.virtualenvs/VENV/bin/python'
 
 let g:coc_global_extensions = [ 'coc-python' ]
 " Use auocmd to force lightline update.
@@ -291,7 +291,10 @@ endif
 " Fix background colors
 set t_ut=""
 if (&term =~ '^xterm' && &t_Co == 256)
-    set t_ut= | set ttyscroll=1
+    set t_ut=
+    if has("ttyscroll")
+        set ttyscroll=1
+    endif
 endif
 
 " Set utf8 as standard encoding and en_US as the standard language
