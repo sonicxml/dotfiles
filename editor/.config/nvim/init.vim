@@ -24,23 +24,23 @@ call plug#begin('~/.vim/plugged')
 Plug 'itchyny/vim-gitbranch'
 Plug 'itchyny/lightline.vim'
 Plug 'junegunn/fzf' | Plug 'junegunn/fzf.vim'
-" Plug 'scrooloose/nerdtree'
+Plug 'scrooloose/nerdtree'
 Plug 'tpope/vim-commentary'
 Plug 'airblade/vim-rooter'
 
 " Development plugins
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
+Plug 'sheerun/vim-polyglot'
 " Python
-Plug 'numirias/semshi', { 'do': ':UpdateRemotePlugins', 'for': 'python' }
+" Plug 'numirias/semshi', { 'do': ':UpdateRemotePlugins', 'for': 'python' }
 
 " Color schemes
-" Plug 'jonlai/smyck-vim'
-" Plug 'dgraham/xcode-low-key-vim'
-" Plug 'cormacrelf/vim-colors-github'
 " Plug 'romainl/flattened'
 " Plug 'ayu-theme/ayu-vim'
-" Plug 'connorholyday/vim-snazzy'
-" Plug 'morhetz/gruvbox'
+" Plug 'NLKNguyen/papercolor-theme'
+" Plug 'chriskempson/base16-vim'
+" let base16colorspace=256  " Access colors present in 256 colorspace
+Plug 'sainnhe/edge'
 Plug 'drewtempelmeyer/palenight.vim'
 call plug#end()
 
@@ -63,7 +63,7 @@ let g:fzf_colors =
   \ 'spinner': ['fg', 'Label'],
   \ 'header':  ['fg', 'Comment'] }
 
-" RipGrep
+" RipGrep with Ctrl-G
 nnoremap <C-g> :Rg<Cr>
 if executable('rg')
 	set grepprg=rg\ --no-heading\ --vimgrep
@@ -84,7 +84,7 @@ let g:lightline = {
       \ }
 
 " NerdTree on Ctrl-O
-" map <C-o> :NERDTreeToggle<CR>
+map <C-o> :NERDTreeToggle<CR>
 
 " Coc
 let g:python3_host_prog = '~/.virtualenvs/VENV/bin/python'
@@ -147,7 +147,7 @@ set undofile
 inoremap jk <ESC>
 " Don't use escape sequences, so remove the pause after escape
 if has('vim')
-    set noesckeys
+  set noesckeys
 end
 " Set to auto read when a file is changed from the outside
 set autoread
@@ -269,32 +269,41 @@ endfunction
 " Enable syntax highlighting
 syntax enable
 
-set background=dark
-
 if (has("termguicolors"))
   set termguicolors
 endif
 
 try
+ " if mac: dark mode enabled?, else: is it nighttime?
+  let darkmode = has('mac') ?
+                 \ system("defaults read -g AppleInterfaceStyle") =~ '^Dark' :
+                 \ (strftime('%H') % 20) < 7
+  if darkmode
+    set background=dark
     colorscheme palenight
+  else
+    set background=light
+    colorscheme edge
+  endif
 catch
 endtry
 
 " Set extra options when running in GUI mode
 if has("gui_running")
-    set guioptions-=T
-    set guioptions-=e
-    set t_Co=256
-    set guitablabel=%M\ %t
+  set guioptions-=T
+  set guioptions-=e
+  set t_Co=256
+  set guitablabel=%M\ %t
+  set guifont=Source\ Code\ Pro\ Medium:h13
 endif
 
 " Fix background colors
 set t_ut=""
 if (&term =~ '^xterm' && &t_Co == 256)
-    set t_ut=
-    if has("ttyscroll")
-        set ttyscroll=1
-    endif
+  set t_ut=
+  if has("ttyscroll")
+    set ttyscroll=1
+  endif
 endif
 
 " Set utf8 as standard encoding and en_US as the standard language
