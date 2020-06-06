@@ -23,8 +23,10 @@ brew tap homebrew/cask-fonts
 echo "Installing core apps"
 export HOMEBREW_NO_AUTO_UPDATE=1
 brew cask install font-source-code-pro
+brew cask install font-source-code-pro-for-powerline
 brew cask install font-hasklig
 brew cask install karabiner-elements
+brew cask install usb-overdrive
 brew cask install kitty
 brew cask install spectacle
 brew cask install spotify

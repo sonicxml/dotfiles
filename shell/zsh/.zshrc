@@ -95,6 +95,7 @@ export GIT_COMPLETION_CHECKOUT_NO_GUESS=1
 export LC_ALL=en_US.UTF-8
 
 # Abbreviations
+abbr -c  # Clear abbreviations first
 abbr --quiet --force l='exa'
 abbr --quiet --force ls='exa -l'
 abbr --quiet --force ll='exa -lhF'
@@ -102,11 +103,12 @@ abbr --quiet --force lg='exa -la --git'
 abbr --quiet --force la='exa -lahF'
 abbr --quiet --force tree='exa -l --tree'
 abbr --quiet --force g='git'
-abbr --quiet --force ga='git add'
+abbr --quiet --force ga='git add -u'
 abbr --quiet --force gd='git diff'
-abbr --quiet --force gp='git pull'
+abbr --quiet --force gf='git fetch -pP'
+abbr --quiet --force gp='git push'
 abbr --quiet --force gs='git status'
-abbr --quiet --force gco='git checkout'
+abbr --quiet --force gco='git checkout --no-tags'
 abbr --quiet --force gcm='git commit -m'
 abbr --quiet --force cat='bat'
 abbr --quiet --force vim='nvim'

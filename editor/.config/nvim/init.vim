@@ -84,7 +84,19 @@ let g:lightline = {
       \ }
 
 " NerdTree on Ctrl-O
-map <C-o> :NERDTreeToggle<CR>
+" map <C-o> :NERDTreeToggle %<CR>
+function! NerdTreeToggleFind()
+    if exists("g:NERDTree") && g:NERDTree.IsOpen()
+        NERDTreeClose
+    elseif filereadable(expand('%'))
+        NERDTreeFind
+    else
+        NERDTree
+    endif
+endfunction
+nnoremap <C-o> :call NerdTreeToggleFind()<CR>
+" Close vim if the only window left open is a NERDTree
+autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
 
 " Coc
 let g:python3_host_prog = '~/.virtualenvs/VENV/bin/python'
@@ -101,6 +113,10 @@ nmap <silent> gi <Plug>(coc-implementation)
 nmap <silent> gr <Plug>(coc-references)
 " Use K to show documentation in preview window.
 nnoremap <silent> K :call <SID>show_documentation()<CR>
+" Use Tab and Enter for code completion
+inoremap <expr> <CR> pumvisible() ? "\<C-y>" : "\<CR>"
+inoremap <expr> <TAB> pumvisible() ? "\<C-n>" : "\<TAB>"
+inoremap <expr> <S-TAB> pumvisible() ? "\<C-p>" : "\<C-d>"
 
 function! s:show_documentation()
   if (index(['vim','help'], &filetype) >= 0)
@@ -143,6 +159,9 @@ nnoremap <silent> <space>a  :CocAction<cr>
 " Permanent undo
 set undodir=~/.vimdid
 set undofile
+
+" Don't require writing when opening a new buffer
+set hidden
 
 inoremap jk <ESC>
 " Don't use escape sequences, so remove the pause after escape
