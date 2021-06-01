@@ -34,7 +34,9 @@ autoload -Uz compinit
 compinit
 
 # Completion for kitty
-kitty + complete setup zsh | source /dev/stdin
+if type "kitty" > /dev/null; then
+    kitty + complete setup zsh | source /dev/stdin
+fi
 
 # Completion
 zstyle ':completion:*' matcher-list 'm:{a-z}={A-Z}'
@@ -52,7 +54,14 @@ zstyle ':completion:*' list-colors ${(s.:.)LS_COLORS}
 #################
 # zplug Plugins #
 #################
-export ZPLUG_HOME=/usr/local/opt/zplug
+case "$OSTYPE" in
+  darwin*)
+    export ZPLUG_HOME=/usr/local/opt/zplug
+  ;;
+  linux*)
+    export ZPLUG_HOME=/home/linuxbrew/.linuxbrew/opt/zplug
+  ;;
+esac
 source $ZPLUG_HOME/init.zsh
 
 zplug "zsh-users/zsh-autosuggestions"
@@ -95,7 +104,6 @@ export GIT_COMPLETION_CHECKOUT_NO_GUESS=1
 export LC_ALL=en_US.UTF-8
 
 # Abbreviations
-abbr -c  # Clear abbreviations first
 abbr --quiet --force l='exa'
 abbr --quiet --force ls='exa -l'
 abbr --quiet --force ll='exa -lhF'
@@ -103,12 +111,14 @@ abbr --quiet --force lg='exa -la --git'
 abbr --quiet --force la='exa -lahF'
 abbr --quiet --force tree='exa -l --tree'
 abbr --quiet --force g='git'
-abbr --quiet --force ga='git add -u'
+abbr --quiet --force ga='git add'
+abbr --quiet --force gau='git add -u'
+abbr --quiet --force gb='git branch'
 abbr --quiet --force gd='git diff'
 abbr --quiet --force gf='git fetch -pP'
 abbr --quiet --force gp='git push'
 abbr --quiet --force gs='git status'
-abbr --quiet --force gco='git checkout --no-tags'
+abbr --quiet --force gco='git checkout'
 abbr --quiet --force gcm='git commit -m'
 abbr --quiet --force cat='bat'
 abbr --quiet --force vim='nvim'
