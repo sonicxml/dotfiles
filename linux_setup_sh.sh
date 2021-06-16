@@ -95,6 +95,7 @@ sed -i "s/VENV/$venv/g" editor/.config/nvim/coc-settings.json
 sed -i "s/VENV/$venv/g" editor/.config/nvim/init.vim
 sed -i "s/USERNAME/$USER/g" editor/.vimrc
 sed -i "s/USERNAME/$USER/g" editor/.config/nvim/coc-settings.json
+sed -i "s/BREW_LOC/\/home\/linuxbrew\/.linuxbrew/g" shell/zsh/.zshrc
 
 mkdir ~/.config
 for dir in */.config/*/

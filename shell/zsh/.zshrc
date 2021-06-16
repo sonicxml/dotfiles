@@ -150,9 +150,9 @@ export PATH="/usr/local/opt/go@1.13/bin:$PATH"
 # VirtualenvWrapper
 export WORKON_HOME=$HOME/.virtualenvs
 export PROJECT_HOME=$HOME/dev
-export VIRTUALENVWRAPPER_PYTHON=/usr/local/opt/python@3.8/bin/python3.8
-export VIRTUALENVWRAPPER_VIRTUALENV=/usr/local/bin/virtualenv
-source /usr/local/bin/virtualenvwrapper.sh
+export VIRTUALENVWRAPPER_PYTHON=BREW_LOC/local/opt/python@3.8/bin/python3.8
+export VIRTUALENVWRAPPER_VIRTUALENV=BREW_LOC/bin/virtualenv
+source BREW_LOC/bin/virtualenvwrapper.sh
 
 
 # fasd
@@ -174,4 +174,8 @@ export FZF_DEFAULT_COMMAND='fd --type file --hidden'
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
+
+if [ -f ~/.zshcustom ]; then
+    source ~/.zshcustom
+fi
 

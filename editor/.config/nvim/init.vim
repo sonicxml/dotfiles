@@ -282,6 +282,10 @@ function! XTermPasteBegin()
   return ""
 endfunction
 
+" Split logically
+set splitbelow
+set splitright
+
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Colors and Fonts
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
