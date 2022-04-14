@@ -17,7 +17,9 @@ echo "Install all AppStore Apps first!"
 read -k1 "?Press any key to continue... "
 
 echo "Installing Homebrew"
-ruby -e "$(curl -fsSL https://raw.github.com/Homebrew/homebrew/go/install)"
+/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+echo 'eval "$(/opt/homebrew/bin/brew shellenv)"' >> /Users/$USER/.zprofile
+eval "$(/opt/homebrew/bin/brew shellenv)"
 brew tap homebrew/cask-fonts
 
 echo "Installing core apps"
@@ -111,7 +113,7 @@ do
     dir=${dir%*/}  # Remove trailing /
     ln -s "/Users/$USER/.dotfiles/$dir" ~/.config/
 done
-ln -s /Users/$USER/.dotfiles/editor/.vimrc ~/.vimrc
+# ln -s /Users/$USER/.dotfiles/editor/.vimrc ~/.vimrc
 ln -s /Users/$USER/.dotfiles/gui/intellij/.ideavimrc ~/.ideavimrc
 ln -s /Users/$USER/.dotfiles/shell/.fzf.bash ~/.fzf.bash
 ln -s /Users/$USER/.dotfiles/shell/.fzf.zsh ~/.fzf.zsh
