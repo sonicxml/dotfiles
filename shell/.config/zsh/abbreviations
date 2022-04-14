@@ -1,6 +1,6 @@
 abbr g="git"
 abbr ga="git add"
-abbr ga="git add -u"
+abbr gau="git add -u"
 abbr gb="git branch"
 abbr gcm="git commit -m"
 abbr gco="git checkout"

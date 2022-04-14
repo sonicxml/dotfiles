@@ -58,7 +58,7 @@ zstyle ':completion:*' list-colors ${(s.:.)LS_COLORS}
 #################
 case "$OSTYPE" in
   darwin*)
-    export ZPLUG_HOME=/usr/local/opt/zplug
+    export ZPLUG_HOME=/opt/homebrew/opt/zplug
   ;;
   linux*)
     export ZPLUG_HOME=/home/linuxbrew/.linuxbrew/opt/zplug
@@ -142,7 +142,14 @@ function cls {
 
 
 # Setting PATH for Python 3.8
-export PATH="/usr/local/opt/python@3.8/bin:$PATH"
+case "$OSTYPE" in
+  darwin*)
+    export PATH="/Users/$USER/Library/Python/3.8/bin:$PATH"
+  ;;
+  linux*)
+    export PATH="/usr/local/opt/python@3.8/bin:$PATH"
+  ;;
+esac
 export LDFLAGS="-L/usr/local/opt/python@3.8/lib"
 # Setting PATH for Golang
 export PATH="/usr/local/opt/go@1.13/bin:$PATH"
@@ -151,9 +158,9 @@ export PATH="/usr/local/opt/go@1.13/bin:$PATH"
 # VirtualenvWrapper
 export WORKON_HOME=$HOME/.virtualenvs
 export PROJECT_HOME=$HOME/dev
-export VIRTUALENVWRAPPER_PYTHON=BREW_LOC/local/opt/python@3.8/bin/python3.8
-export VIRTUALENVWRAPPER_VIRTUALENV=BREW_LOC/bin/virtualenv
-source BREW_LOC/bin/virtualenvwrapper.sh
+export VIRTUALENVWRAPPER_PYTHON=/usr/local/local/opt/python@3.8/bin/python3.8
+export VIRTUALENVWRAPPER_VIRTUALENV=/usr/local/bin/virtualenv
+source /usr/local/bin/virtualenvwrapper.sh
 
 
 # fzf

@@ -17,9 +17,9 @@ echo "Install all AppStore Apps first!"
 read -k1 "?Press any key to continue... "
 
 echo "Installing Homebrew"
-/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
-echo 'eval "$(/opt/homebrew/bin/brew shellenv)"' >> /Users/$USER/.zprofile
-eval "$(/opt/homebrew/bin/brew shellenv)"
+# /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+# echo 'eval "$(/opt/homebrew/bin/brew shellenv)"' >> /Users/$USER/.zprofile
+# eval "$(/opt/homebrew/bin/brew shellenv)"
 brew tap homebrew/cask-fonts
 
 echo "Installing core apps"
