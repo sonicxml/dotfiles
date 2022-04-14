@@ -22,19 +22,19 @@ brew tap homebrew/cask-fonts
 
 echo "Installing core apps"
 export HOMEBREW_NO_AUTO_UPDATE=1
-brew cask install font-source-code-pro
-brew cask install font-source-code-pro-for-powerline
-brew cask install font-hasklig
-brew cask install karabiner-elements
-brew cask install usb-overdrive
-brew cask install kitty
-brew cask install spectacle
-brew cask install spotify
+brew install --cask font-source-code-pro
+brew install --cask font-source-code-pro-for-powerline
+brew install --cask font-hasklig
+brew install --cask karabiner-elements
+brew install --cask kitty
+brew install --cask rectangle
+brew install --cask spotify
 # Uncomment if desired
-# brew cask install spotify-notifications
-# brew cask install docker
-# brew cask install firefox
-# brew cask install google-chrome
+# brew install --cask usb-overdrive
+# brew install --cask spotify-notifications
+# brew install --cask docker
+brew install --cask firefox
+brew install --cask google-chrome
 
 # Consider installing Little Snitch and/or Micro Snitch
 # https://www.obdev.at/products/littlesnitch/order.html
@@ -44,15 +44,15 @@ echo "Installing standard brew tools"
 brew install bat
 brew install ctags
 brew install exa
-brew install fasd
 brew install fd
 brew install fzf
-brew install git-delta
+# brew install git-delta
 brew install neovim
 brew install node
 brew install ripgrep
 brew install tmux
 brew install wget
+brew install zoxide
 brew install zplug
 
 # Dev-specific brew installations
@@ -67,8 +67,8 @@ python3 -m pip install virtualenvwrapper
 # brew install sqlite
 
 echo "Creating SSH Keys"
-ssh-keygen -t ed25519 -C $email -q -N ""
-ssh-keygen -t rsa -b 4096 -C $email -q -N ""
+# ssh-keygen -t ed25519 -C $email -q -N ""
+# ssh-keygen -t rsa -b 4096 -C $email -q -N ""
 
 echo "Disabling key repeat for certain applications"
 defaults write co.zeit.hyper ApplePressAndHoldEnabled -bool false

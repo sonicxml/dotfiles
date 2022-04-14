@@ -4,6 +4,8 @@ setopt BEEP                      # Beep on error in ZLE
 # bindkey -mv 2>/dev/null
 bindkey -v                      # Enable vim mode
 export KEYTIMEOUT=1
+export VISUAL=nvim
+export EDITOR="$VISUAL"
 
 
 #######################
@@ -69,7 +71,6 @@ zplug "djui/alias-tips"
 zplug "peterhurford/up.zsh"
 zplug "olets/zsh-abbr"
 zplug "plugins/gitfast", from:oh-my-zsh
-zplug "plugins/fasd", from:oh-my-zsh
 zplug "zsh-users/zsh-completions", depth:1
 zplug "zdharma/fast-syntax-highlighting", defer:2
 zplug "zsh-users/zsh-history-substring-search", defer:3
@@ -119,8 +120,8 @@ abbr --quiet --force gf='git fetch -pP'
 abbr --quiet --force gp='git push'
 abbr --quiet --force gs='git status'
 abbr --quiet --force gco='git checkout'
+abbr --quiet --force gcp='git cherry-pick'
 abbr --quiet --force gcm='git commit -m'
-abbr --quiet --force cat='bat'
 abbr --quiet --force vim='nvim'
 abbr --quiet --force vimdiff='nvim -d'
 
@@ -155,22 +156,12 @@ export VIRTUALENVWRAPPER_VIRTUALENV=BREW_LOC/bin/virtualenv
 source BREW_LOC/bin/virtualenvwrapper.sh
 
 
-# fasd
-alias a='fasd -a'        # any
-alias s='fasd -si'       # show / search / select
-alias d='fasd -d'        # directory
-alias f='fasd -f'        # file
-alias sd='fasd -sid'     # interactive directory selection
-alias sf='fasd -sif'     # interactive file selection
-alias j='fasd_cd -d'     # cd, same functionality as j in autojump
-alias jj='fasd_cd -d -i' # cd with interactive selection
-alias v='f -e nvim'      # quick opening files with vim
-alias o='a -e open'      # quick opening files with file explorer
-
-
 # fzf
 export FZF_DEFAULT_COMMAND='fd --type file --hidden'
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+# zoxide
+eval "$(zoxide init zsh --cmd j)"
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
