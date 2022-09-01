@@ -1,7 +1,7 @@
 local opt = vim.opt
 local cmd = vim.cmd
 
-opt.autochdir = true
+opt.autochdir = false
 opt.clipboard = 'unnamedplus'
 opt.completeopt = 'menuone,noinsert'
 opt.linebreak = false
@@ -11,10 +11,12 @@ opt.mouse = 'a' -- In many terminal emulators the mouse works just fine, thus en
 opt.number = true -- Absolute line numbers
 opt.scrolloff = 7 -- Set 7 lines to the cursor - when moving vertically using j/k
 
-opt.shiftwidth = 4
-opt.tabstop = 4
+opt.shiftwidth = 2
+opt.tabstop = 2
 opt.expandtab = true
 opt.smarttab = true
+
+opt.foldmethod = 'indent'
 
 opt.splitright = true
 opt.splitbelow = true

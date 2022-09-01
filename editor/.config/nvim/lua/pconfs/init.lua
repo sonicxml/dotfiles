@@ -31,6 +31,15 @@ for _, lsp in ipairs(lspservers) do
     }
   }
 end
+nvim_lsp["ccls"].setup {
+  on_attach = on_attach,
+  flags = {
+    debounce_text_changes = 150,
+  },
+  init_options = {
+      compilationDatabaseDirectory = "/home/tgandhi/dev/fleet/src/akira"
+  }
+}
 --vim.lsp.set_log_level("debug")
 
 
@@ -141,6 +150,9 @@ vim.api.nvim_set_keymap("s", "<S-Tab>", "v:lua.s_tab_complete()", {expr = true})
 -- LSPSaga
 local saga = require 'lspsaga'
 saga.init_lsp_saga()
+
+-- Leap
+require('leap').set_default_keymaps()
 
 -- Zen Mode
 vim.api.nvim_set_keymap("n", "<leader>z", [[<Cmd>TZAtaraxis<CR>]], {})

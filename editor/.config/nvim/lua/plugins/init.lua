@@ -13,7 +13,10 @@ return require('packer').startup(function(use)
   use 'williamboman/nvim-lsp-installer'
   use 'hrsh7th/nvim-compe'
   use 'liuchengxu/vista.vim'
-  use 'glepnir/lspsaga.nvim'
+  use({
+    "glepnir/lspsaga.nvim",
+    branch = "main",
+  })
 
   -- Icons
   use 'kyazdani42/nvim-web-devicons'
@@ -49,6 +52,9 @@ return require('packer').startup(function(use)
   -- Helpful
   use "folke/which-key.nvim"
   use 'Pocco81/TrueZen.nvim'
-  use 'akinsho/toggleterm.nvim'
+  use 'ggandor/leap.nvim'
+  use {"akinsho/toggleterm.nvim", tag = 'v2.*', config = function()
+    require("toggleterm").setup()
+  end}
 end)
 

@@ -20,5 +20,6 @@ vim.api.nvim_set_keymap('', 'L', '$', {noremap = true})
 
 -- Quick buffer switching
 vim.api.nvim_set_keymap('n', '<leader><leader>', ':BufferPick<CR>', { noremap = true, silent = true })
-vim.api.nvim_set_keymap('n', '<leader>j', ':BufferPrevious<CR>', { noremap = true, silent = true })
-vim.api.nvim_set_keymap('n', '<leader>k', ':BufferNext<CR>', { noremap = true, silent = true })
+vim.api.nvim_set_keymap('n', '<leader>h', ':BufferPrevious<CR>', { noremap = true, silent = true })
+vim.api.nvim_set_keymap('n', '<leader>l', ':BufferNext<CR>', { noremap = true, silent = true })
+vim.api.nvim_set_keymap('n', '<leader>q', ':BufferClose<cr>', { noremap = true, silent = true })
