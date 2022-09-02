@@ -35,11 +35,11 @@ opt.updatetime = 1500
 
 local darkmode = vim.api.nvim_eval([[ has('mac') ?  system("defaults read -g AppleInterfaceStyle") =~ '^Dark' : (strftime('%H') % 20) < 7 ]])
 if darkmode == 1 then
-    opt.background = 'dark'
-    cmd 'colorscheme gruvbox'
+  opt.background = 'dark'
+  cmd 'colorscheme gruvbox'
 else
-    opt.background = 'dark'
-    cmd 'colorscheme nord'
+  opt.background = 'dark'
+  cmd 'colorscheme onenord'
 end
 
 -- Remove trailing whitespace on save

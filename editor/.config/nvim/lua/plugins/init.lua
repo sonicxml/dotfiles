@@ -31,6 +31,7 @@ return require('packer').startup(function(use)
   -- Color Schemes
   use 'ChristianChiarulli/nvcode-color-schemes.vim'
   use 'sainnhe/edge'
+  use 'rmehri01/onenord.nvim'
 
   -- Files
   use {
