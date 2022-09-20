@@ -30,8 +30,8 @@ return require('packer').startup(function(use)
 
   -- Color Schemes
   use 'ChristianChiarulli/nvcode-color-schemes.vim'
-  use 'sainnhe/edge'
   use 'rmehri01/onenord.nvim'
+  use 'EdenEast/nightfox.nvim'
 
   -- Files
   use {
@@ -49,6 +49,7 @@ return require('packer').startup(function(use)
   -- UI
   use 'romgrk/barbar.nvim'
   use 'Famiu/feline.nvim'
+  use 'nvim-lualine/lualine.nvim'
 
   -- Helpful
   use "folke/which-key.nvim"

@@ -22,7 +22,7 @@ local on_attach = function(client, bufnr)
   buf_set_keymap('n', '<space>e', '<cmd>lua vim.lsp.diagnostic.show_line_diagnostics()<CR>', opts)
 end
 
-local lspservers = { "pyright", "gopls", "yamlls" }
+local lspservers = { "gopls", "yamlls" }
 for _, lsp in ipairs(lspservers) do
   nvim_lsp[lsp].setup {
     on_attach = on_attach,
@@ -38,6 +38,18 @@ nvim_lsp["ccls"].setup {
   },
   init_options = {
       compilationDatabaseDirectory = "/home/tgandhi/dev/fleet/src/akira"
+  }
+}
+nvim_lsp["pyright"].setup {
+  on_attach = on_attach,
+  flags = {
+    debounce_text_changes = 150,
+  },
+  settings = {
+    python = {
+      venvPath = "~/.virtualenvs",
+      venv = "fleet"
+    }
   }
 }
 --vim.lsp.set_log_level("debug")
@@ -161,7 +173,13 @@ vim.api.nvim_set_keymap("n", "<leader>z", [[<Cmd>TZAtaraxis<CR>]], {})
 require('gitsigns').setup()
 
 -- Status Line
-require('feline').setup()
+require('lualine').setup {
+  options = {
+    theme = 'auto',
+    component_separators = '',
+    section_separators = { left = '', right = '' },
+  }
+}
 
 -- Telescope
 vim.api.nvim_set_keymap('n', '<leader>ff', '<Cmd>Telescope find_files<CR>', {noremap = true})
