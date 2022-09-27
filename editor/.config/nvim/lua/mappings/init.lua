@@ -1,10 +1,8 @@
-local keymap = vim.api.nvim_set_keymap
-
 vim.g.mapleader = ' '
 vim.g.maplocalleader = ' '
 
 -- Escape in terminal Mode
-keymap('t', '<M-Esc>', '<C-\\><C-n>', {noremap = true})
+vim.api.nvim_set_keymap('t', '<M-Esc>', '<C-\\><C-n>', {noremap = true})
 
 -- Faster saving, exiting
 vim.api.nvim_set_keymap('n', '<leader>w', ':w!<CR>', {noremap = true})
