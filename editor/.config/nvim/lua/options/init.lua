@@ -39,7 +39,7 @@ if darkmode == 1 then
   cmd 'colorscheme nordfox'
 else
   opt.background = 'light'
-  cmd 'colorscheme dayfox'
+  cmd 'colorscheme github_light'
 end
 
 -- Remove trailing whitespace on save

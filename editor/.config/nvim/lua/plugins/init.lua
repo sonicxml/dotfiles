@@ -1,7 +1,13 @@
 return require('packer').startup(function(use)
   use 'wbthomason/packer.nvim'
 
-  use 'cohama/lexima.vim'
+  -- use {
+	--   "windwp/nvim-autopairs",
+  --   config = function()
+  --     require("nvim-autopairs").setup {}
+  --   end,
+  -- }
+
 
   use {
     'nvim-treesitter/nvim-treesitter',
@@ -32,6 +38,7 @@ return require('packer').startup(function(use)
   use 'ChristianChiarulli/nvcode-color-schemes.vim'
   use 'rmehri01/onenord.nvim'
   use 'EdenEast/nightfox.nvim'
+  use 'projekt0n/github-nvim-theme'
 
   -- Files
   use {
@@ -55,8 +62,12 @@ return require('packer').startup(function(use)
   use "folke/which-key.nvim"
   use 'Pocco81/TrueZen.nvim'
   use 'ggandor/leap.nvim'
-  use {"akinsho/toggleterm.nvim", tag = 'v2.*', config = function()
-    require("toggleterm").setup()
-  end}
+  use {
+    "akinsho/toggleterm.nvim",
+    tag = 'v2.*',
+    config = function()
+      require("toggleterm").setup()
+    end,
+  }
 end)
 

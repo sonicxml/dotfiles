@@ -44,20 +44,43 @@ nvim_lsp["ccls"].setup {
     debounce_text_changes = 150,
   },
   init_options = {
-      compilationDatabaseDirectory = "/home/tgandhi/dev/fleet/src/akira"
+      compilationDatabaseDirectory = "/home/tgandhi/dev/fleet/src/akira/build/Debug"
   }
 }
-nvim_lsp["pyright"].setup {
+-- nvim_lsp["pyright"].setup {
+--   on_attach = on_attach,
+--   flags = {
+--     debounce_text_changes = 150,
+--   },
+--   settings = {
+--     python = {
+--       venvPath = "~/.virtualenvs",
+--       venv = "fleet",
+--       pythonPath = "~/dev/fleet/src/akira:~/dev/fleet",
+--     }
+--   }
+-- }
+nvim_lsp["pylsp"].setup {
   on_attach = on_attach,
   flags = {
     debounce_text_changes = 150,
   },
+  cmd = {"/home/tgandhi/.virtualenvs/fleet/bin/pylsp"},
+  root_dir = function(fname)
+    return "/home/tgandhi/dev/fleet/src/akira"
+  end,
   settings = {
-    python = {
-      venvPath = "~/.virtualenvs",
-      venv = "fleet"
-    }
-  }
+    pylsp = {
+      plugins = {
+        pylint = { enabled = true, executable = "pylint" },
+        pyflakes = { enabled = false },
+        pycodestyle = { enabled = false },
+        jedi_completion = { fuzzy = true },
+        pyls_isort = { enabled = true },
+        pylsp_mypy = { enabled = true },
+      },
+    },
+  },
 }
 --vim.lsp.set_log_level("debug")
 
