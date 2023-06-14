@@ -83,6 +83,10 @@ return {
         copy = {['+'] = copy, ['*'] = copy},
         paste = {['+'] = paste, ['*'] = paste},
       },
-    }
+    },
   },
+
+  polish = function()
+    vim.api.nvim_command("autocmd BufWritePre * :%s/\\s\\+$//e")
+  end
 }
