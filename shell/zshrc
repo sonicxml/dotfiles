@@ -1,0 +1,154 @@
+# ----------------------------
+# Homebrew
+# ----------------------------
+if [[ -x /opt/homebrew/bin/brew ]]; then
+  eval "$(/opt/homebrew/bin/brew shellenv)"
+fi
+
+HOMEBREW_PREFIX="${HOMEBREW_PREFIX:-$(brew --prefix 2>/dev/null)}"
+
+# ----------------------------
+# Basic shell behavior
+# ----------------------------
+setopt AUTO_CD
+setopt INTERACTIVE_COMMENTS
+setopt APPEND_HISTORY
+setopt INC_APPEND_HISTORY
+setopt SHARE_HISTORY
+setopt HIST_IGNORE_DUPS
+setopt HIST_IGNORE_SPACE
+setopt HIST_REDUCE_BLANKS
+setopt HIST_VERIFY
+setopt EXTENDED_GLOB
+
+export HISTFILE="$HOME/.zsh_history"
+export HISTSIZE=100000
+export SAVEHIST=100000
+
+export EDITOR="nvim"
+export VISUAL="$EDITOR"
+export PAGER="less -R"
+export LESS="-FRX"
+export LANG="en_US.UTF-8"
+export LC_ALL="en_US.UTF-8"
+
+# ----------------------------
+# PATH
+# ----------------------------
+typeset -U path PATH
+path=(
+  "$HOME/.local/bin"
+  "$HOME/bin"
+  "$HOME/.cargo/bin"
+  "$HOMEBREW_PREFIX/opt/rustup/bin"
+  "$HOMEBREW_PREFIX/bin"
+  "$HOMEBREW_PREFIX/sbin"
+  $path
+)
+export PATH
+
+# ----------------------------
+# Completion
+# ----------------------------
+mkdir -p "$HOME/.cache/zsh"
+autoload -Uz compinit
+
+ZSH_COMPDUMP="$HOME/.cache/zsh/zcompdump"
+if [[ ! -f "$ZSH_COMPDUMP" || "$ZSH_COMPDUMP" -ot "$HOME/.zshrc" ]]; then
+  compinit -d "$ZSH_COMPDUMP"
+else
+  compinit -C -d "$ZSH_COMPDUMP"
+fi
+
+zstyle ':completion:*' matcher-list 'm:{a-z}={A-Z}'
+zstyle ':completion:*' menu select
+zstyle ':completion:*' use-cache yes
+zstyle ':completion:*' cache-path "$HOME/.cache/zsh/zcompcache"
+
+# ----------------------------
+# Core tooling
+# ----------------------------
+eval "$(zoxide init zsh --cmd j)"
+eval "$(atuin init zsh --disable-up-arrow)"
+eval "$(direnv hook zsh)"
+eval "$(mise activate zsh)"
+
+# fzf
+[ -f "$HOME/.fzf.zsh" ] && source "$HOME/.fzf.zsh"
+export FZF_DEFAULT_COMMAND='fd --type f --hidden --strip-cwd-prefix --exclude .git'
+export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
+
+# ----------------------------
+# Zsh plugins via Homebrew
+# ----------------------------
+source "$HOMEBREW_PREFIX/share/zsh-autosuggestions/zsh-autosuggestions.zsh"
+source "$HOMEBREW_PREFIX/share/zsh-fast-syntax-highlighting/fast-syntax-highlighting.plugin.zsh"
+source "$HOMEBREW_PREFIX/share/zsh-history-substring-search/zsh-history-substring-search.zsh"
+source "$HOMEBREW_PREFIX/share/zsh-abbr/zsh-abbr.zsh"
+
+# Vim mode
+# Vim mode must be enabled before zsh-abbr.
+bindkey -v
+export KEYTIMEOUT=1
+
+# History substring search on arrows
+bindkey '^[[A' history-substring-search-up
+bindkey '^[[B' history-substring-search-down
+
+# ----------------------------
+# Abbreviations
+# ----------------------------
+# zsh-abbr config
+export ABBR_USER_ABBREVIATIONS_FILE="$HOME/.config/zsh-abbr/user-abbreviations"
+export ABBR_QUIET=1
+
+# Optional: avoid reloading abbreviation storage on every `abbr` command.
+# If you manually edit the file in another terminal, run `abbr load` or `exec zsh`.
+source "$HOMEBREW_PREFIX/share/zsh-abbr/zsh-abbr.zsh"
+
+# ----------------------------
+# Aliases
+# ----------------------------
+alias cat='bat --paging=never'
+alias weather='curl wttr.in'
+
+# ----------------------------
+# Functions
+# ----------------------------
+cls() {
+  osascript -e 'tell application "System Events" to keystroke "k" using command down'
+}
+
+mkcd() {
+  mkdir -p "$1" && cd "$1"
+}
+
+groot() {
+  git rev-parse --show-toplevel 2>/dev/null
+}
+
+croot() {
+  local root
+  root="$(groot)" || return 1
+  cd "$root"
+}
+
+wtnew() {
+  local branch="${1:?usage: wtnew branch-name}"
+  local root name parent
+  root="$(git rev-parse --show-toplevel)"
+  name="$(basename "$root")"
+  parent="$(dirname "$root")"
+  git -C "$root" worktree add "$parent/${name}-${branch}" -b "$branch"
+  cd "$parent/${name}-${branch}"
+}
+
+# ----------------------------
+# Local machine-only overrides
+# ----------------------------
+[ -f "$HOME/.zsh.local" ] && source "$HOME/.zsh.local"
+
+# ----------------------------
+# Prompt
+# ----------------------------
+eval "$(starship init zsh)"

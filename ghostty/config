@@ -1,0 +1,17 @@
+window-inherit-working-directory = false
+working-directory = home
+
+# Try Maple first. For Monaspace Nerd Font, try one of the Monaspice families in Font Book.
+font-family = "Maple Mono NF"
+font-size = 13
+
+theme = nord
+
+window-padding-x = 8
+window-padding-y = 8
+
+macos-option-as-alt = true
+copy-on-select = false
+shell-integration = zsh
+
+keybind = shift+enter=text:\n
