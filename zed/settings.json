@@ -2,7 +2,7 @@
   "theme": "Nord Dark",
   "vim_mode": true,
   "buffer_font_size": 13.0,
-  "buffer_font_family": "Maple Mono NF",
+  "buffer_font_family": "MonaspiceNe Nerd Font Mono",
   "telemetry": {
     "metrics": false,
     "diagnostics": false

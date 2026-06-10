@@ -2,7 +2,7 @@ window-inherit-working-directory = false
 working-directory = home
 
 # Try Maple first. For Monaspace Nerd Font, try one of the Monaspice families in Font Book.
-font-family = "Maple Mono NF"
+font-family = "MonaspiceNe Nerd Font Mono"
 font-size = 13
 
 theme = nord

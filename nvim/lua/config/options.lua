@@ -7,4 +7,4 @@ vim.opt.sidescrolloff = 8
 vim.opt.confirm = true
 
 -- Match Zed/Ghostty vibe.
-vim.opt.guifont = "Maple Mono NF:h13"
+vim.opt.guifont = "MonaspiceNe Nerd Font Mono:h13"
