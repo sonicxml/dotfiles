@@ -1,0 +1,33 @@
+{
+  "theme": "Nord Dark",
+  "vim_mode": true,
+  "buffer_font_size": 13.0,
+  "buffer_font_family": "Maple Mono NF",
+  "telemetry": {
+    "metrics": false,
+    "diagnostics": false
+  },
+  "edit_predictions": {
+    "provider": "zed"
+  },
+  "agent": {
+    "tool_permissions": {
+      "default": "allow"
+    },
+    "default_profile": "write",
+    "default_model": {
+      "provider": "anthropic",
+      "model": "claude-opus-4-1-thinking-latest"
+    }
+  },
+  "agent_servers": {
+    "claude": {
+      "default_model": "opus"
+    }
+  },
+  "languages": {
+    "Proto": { "tab_size": 2 },
+    "TOML": { "tab_size": 2 },
+    "YAML": { "tab_size": 2 }
+  }
+}

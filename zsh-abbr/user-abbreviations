@@ -1,0 +1,21 @@
+abbr g=git
+abbr ga='git add'
+abbr gau='git add -u'
+abbr gb='git branch'
+abbr gco='git checkout'
+abbr gcp='git cherry-pick'
+abbr gd='git diff'
+abbr gf='git fetch -pP'
+abbr gp='git push'
+abbr gs='git status'
+abbr gcm='git commit -m'
+
+abbr l=eza
+abbr ls='eza -l'
+abbr ll='eza -lhF'
+abbr la='eza -lahF'
+abbr lg='eza -la --git'
+abbr tree='eza --tree'
+
+abbr vim=nvim
+abbr vimdiff='nvim -d'
