@@ -1,16 +1,48 @@
+# ~/.config/aerospace/aerospace.toml
+
+config-version = 2
+
+# Start AeroSpace at login.
 start-at-login = true
 
+# Commands to run after login / startup.
+after-login-command = []
+after-startup-command = []
+
+# Normalization keeps the tiling tree sane.
+enable-normalization-flatten-containers = true
+enable-normalization-opposite-orientation-for-nested-containers = true
+
+# Layout defaults.
 accordion-padding = 24
 default-root-container-layout = 'tiles'
 default-root-container-orientation = 'auto'
 
-enable-normalization-flatten-containers = true
-enable-normalization-opposite-orientation-for-nested-containers = true
+# Mouse follows monitor focus.
+on-focused-monitor-changed = ['move-mouse monitor-lazy-center']
 
+# Keep apps visible if macOS hide shortcuts get hit accidentally.
 automatically-unhide-macos-hidden-apps = true
+
+# Keep these workspaces alive even when empty.
+persistent-workspaces = [
+  'code',
+  'term',
+  'web',
+  'ops',
+  'misc',
+  'scratch'
+]
+
+# Callback when binding mode changes.
+on-mode-changed = []
 
 [key-mapping]
 preset = 'qwerty'
+
+# ------------------------------------------------------------
+# Gaps
+# ------------------------------------------------------------
 
 [gaps]
 inner.horizontal = 8
@@ -20,56 +52,255 @@ outer.bottom = 8
 outer.top = 8
 outer.right = 8
 
+# ------------------------------------------------------------
+# Workspace → Monitor assignment
+# ------------------------------------------------------------
+#
+# Office:
+# - ops / Slack / Notion      -> laptop built-in display
+# - web / Arc                 -> first external monitor
+# - code / Zed                -> second external monitor
+# - term / Ghostty            -> second external monitor
+#
+# Home:
+# - ops / Slack / Notion      -> laptop built-in display
+# - everything else           -> external/main monitor
+#
+# Travel:
+# - everything collapses onto built-in display
+#
+# Assumption:
+# - monitor 1 = first external / web
+# - built-in = laptop
+# - monitor 3 = second external / code+term
+#
+# If `aerospace list-monitors` differs, adjust 1 and 3.
+
+[workspace-to-monitor-force-assignment]
+ops = 'built-in'
+
+web = [1, 'secondary', 'main']
+
+code = [3, 'main']
+term = [3, 'main']
+
+misc = ['main', 'secondary', 'built-in']
+scratch = ['main', 'secondary', 'built-in']
+
+# ------------------------------------------------------------
+# Main bindings
+# ------------------------------------------------------------
+
 [mode.main.binding]
+
+# ----------------------------
 # Layout
-alt-slash = 'layout tiles horizontal vertical'
-alt-comma = 'layout accordion horizontal vertical'
-alt-f = 'fullscreen'
-alt-shift-space = 'layout floating tiling'
+# ----------------------------
 
-# Focus: Vim-style
-alt-h = 'focus left'
-alt-j = 'focus down'
-alt-k = 'focus up'
-alt-l = 'focus right'
+cmd-shift-enter = 'fullscreen'
 
-# Move windows: Vim-style + shift
-alt-shift-h = 'move left'
-alt-shift-j = 'move down'
-alt-shift-k = 'move up'
-alt-shift-l = 'move right'
+cmd-ctrl-slash = 'layout tiles horizontal vertical'
+cmd-ctrl-comma = 'layout accordion horizontal vertical'
 
+cmd-ctrl-f = 'layout floating tiling'
+cmd-ctrl-shift-r = 'flatten-workspace-tree'
+
+# ----------------------------
+# Focus windows
+# ----------------------------
+
+cmd-ctrl-h = 'focus --boundaries-action wrap-around-the-workspace left'
+cmd-ctrl-j = 'focus --boundaries-action wrap-around-the-workspace down'
+cmd-ctrl-k = 'focus --boundaries-action wrap-around-the-workspace up'
+cmd-ctrl-l = 'focus --boundaries-action wrap-around-the-workspace right'
+
+# ----------------------------
+# Focus monitors
+# ----------------------------
+
+# cmd-ctrl-q = 'focus-monitor left'
+# cmd-ctrl-e = 'focus-monitor right'
+
+# ----------------------------
+# Move windows
+# ----------------------------
+
+cmd-ctrl-shift-h = 'move left'
+cmd-ctrl-shift-j = 'move down'
+cmd-ctrl-shift-k = 'move up'
+cmd-ctrl-shift-l = 'move right'
+
+# ----------------------------
 # Resize
-alt-minus = 'resize smart -50'
-alt-equal = 'resize smart +50'
-alt-r = 'mode resize'
+# ----------------------------
 
-# Workspaces
-alt-1 = 'workspace 1'
-alt-2 = 'workspace 2'
-alt-3 = 'workspace 3'
-alt-4 = 'workspace 4'
-alt-5 = 'workspace 5'
-alt-6 = 'workspace 6'
+cmd-ctrl-minus = 'resize smart -50'
+cmd-ctrl-equal = 'resize smart +50'
+cmd-ctrl-r = 'mode resize'
 
-alt-shift-1 = 'move-node-to-workspace 1'
-alt-shift-2 = 'move-node-to-workspace 2'
-alt-shift-3 = 'move-node-to-workspace 3'
-alt-shift-4 = 'move-node-to-workspace 4'
-alt-shift-5 = 'move-node-to-workspace 5'
-alt-shift-6 = 'move-node-to-workspace 6'
+# ----------------------------
+# Workspaces by name
+# ----------------------------
 
-alt-tab = 'workspace-back-and-forth'
+cmd-ctrl-c = 'workspace code'
+cmd-ctrl-t = 'workspace term'
+cmd-ctrl-w = 'workspace web'
+cmd-ctrl-o = 'workspace ops'
+cmd-ctrl-m = 'workspace misc'
 
+# Move current window to workspace and follow it.
+cmd-ctrl-shift-c = ['move-node-to-workspace code', 'workspace code']
+cmd-ctrl-shift-t = ['move-node-to-workspace term', 'workspace term']
+cmd-ctrl-shift-w = ['move-node-to-workspace web', 'workspace web']
+cmd-ctrl-shift-o = ['move-node-to-workspace ops', 'workspace ops']
+cmd-ctrl-shift-m = ['move-node-to-workspace misc', 'workspace misc']
+cmd-ctrl-shift-s = ['move-node-to-workspace scratch', 'workspace scratch']
+
+# Previous / next workspace.
+cmd-ctrl-left = 'workspace prev'
+cmd-ctrl-right = 'workspace next'
+
+# Previous / next monitor.
+cmd-ctrl-shift-left = 'focus-monitor prev'
+cmd-ctrl-shift-right = 'focus-monitor next'
+
+# Toggle previous workspace.
+cmd-ctrl-tab = 'workspace-back-and-forth'
+
+# Move current workspace to another monitor.
+cmd-ctrl-shift-tab = 'move-workspace-to-monitor --wrap-around next'
+
+# ----------------------------
 # App launchers
-alt-enter = 'exec-and-forget open -a Ghostty'
-alt-b = 'exec-and-forget open -a Arc'
-alt-z = 'exec-and-forget open -a Zed'
+# ----------------------------
+
+cmd-ctrl-g = 'exec-and-forget open -a Ghostty'
+cmd-ctrl-z = 'exec-and-forget open -a Zed'
+cmd-ctrl-a = 'exec-and-forget open -a Arc'
+
+cmd-ctrl-s = ['exec-and-forget open -a Slack', 'workspace ops']
+cmd-ctrl-n = ['exec-and-forget open -a Notion', 'workspace ops']
+
+# Service mode.
+cmd-ctrl-semicolon = 'mode service'
+
+# ------------------------------------------------------------
+# Resize mode
+# ------------------------------------------------------------
 
 [mode.resize.binding]
 h = 'resize width -50'
 l = 'resize width +50'
 j = 'resize height +50'
 k = 'resize height -50'
+
+minus = 'resize smart -50'
+equal = 'resize smart +50'
+
 enter = 'mode main'
 esc = 'mode main'
+
+# ------------------------------------------------------------
+# Service mode
+# ------------------------------------------------------------
+
+[mode.service.binding]
+
+cmd-ctrl-semicolon = 'mode main'
+
+esc = [
+  'reload-config',
+  'exec-and-forget osascript -e "display notification \"AeroSpace config reloaded\" with title \"AeroSpace\""',
+  'mode main'
+]
+
+r = ['flatten-workspace-tree', 'mode main']
+f = ['layout floating tiling', 'mode main']
+backspace = ['close-all-windows-but-current', 'mode main']
+
+q = ['move-workspace-to-monitor left', 'mode main']
+e = ['move-workspace-to-monitor right', 'mode main']
+
+# Join windows into containers.
+h = ['join-with left', 'mode main']
+j = ['join-with down', 'mode main']
+k = ['join-with up', 'mode main']
+l = ['join-with right', 'mode main']
+
+# ------------------------------------------------------------
+# App → Workspace rules
+# ------------------------------------------------------------
+#
+# These use your exact app IDs from `aerospace list-apps`.
+
+# Zed → code
+[[on-window-detected]]
+if.app-id = 'dev.zed.Zed'
+run = 'move-node-to-workspace code'
+
+# Ghostty → term
+[[on-window-detected]]
+if.app-id = 'com.mitchellh.ghostty'
+run = 'move-node-to-workspace term'
+
+# Arc → web
+[[on-window-detected]]
+if.app-id = 'company.thebrowser.Browser'
+run = 'move-node-to-workspace web'
+
+# Slack → ops
+[[on-window-detected]]
+if.app-id = 'com.tinyspeck.slackmacgap'
+run = 'move-node-to-workspace ops'
+
+# Notion → ops
+[[on-window-detected]]
+if.app-id = 'notion.id'
+run = 'move-node-to-workspace ops'
+
+# ------------------------------------------------------------
+# Floating utility windows
+# ------------------------------------------------------------
+
+# 1Password should float.
+[[on-window-detected]]
+if.app-id = 'com.1password.1password'
+run = 'layout floating'
+
+# BetterDisplay should float.
+[[on-window-detected]]
+if.app-id = 'pro.betterdisplay.BetterDisplay'
+run = 'layout floating'
+
+# Thaw should float.
+[[on-window-detected]]
+if.app-id = 'com.stonerl.Thaw'
+run = 'layout floating'
+
+# LinearMouse should float.
+[[on-window-detected]]
+if.app-id = 'com.lujjjh.LinearMouse'
+run = 'layout floating'
+
+# Finder should float by default.
+[[on-window-detected]]
+if.app-id = 'com.apple.finder'
+run = 'layout floating'
+
+# macOS auth / notification / system utility windows.
+[[on-window-detected]]
+if.app-id = 'com.apple.accessibility.universalAccessAuthWarn'
+run = 'layout floating'
+
+[[on-window-detected]]
+if.app-id = 'com.apple.UserNotificationCenter'
+run = 'layout floating'
+
+[[on-window-detected]]
+if.app-id = 'com.apple.notificationcenterui'
+run = 'layout floating'
+
+# SentinelOne / company security agent should not tile.
+[[on-window-detected]]
+if.app-id = 'com.sentinelone.SentinelAgent'
+run = 'layout floating'
