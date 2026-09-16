@@ -1,4 +1,3 @@
-tap "nikitabobko/tap"
 tap "olets/tap"
 
 # Core shell/dev tools
@@ -45,7 +44,6 @@ cask "zed"
 cask "orbstack"
 cask "notion"
 cask "raycast"
-cask "aerospace"
 cask "thaw"
 cask "betterdisplay"
 cask "openlogi"
