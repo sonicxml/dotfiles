@@ -1,0 +1,344 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>Custom Controls (4001)</key>
+	<array>
+		<dict>
+			<key>Action</key>
+			<integer>10001</integer>
+			<key>Chain Mode</key>
+			<integer>0</integer>
+			<key>Children</key>
+			<array>
+				<dict>
+					<key>Action</key>
+					<integer>61</integer>
+					<key>Identifier</key>
+					<string>C6AD5B3E-64C9-41F5-B1B2-32CCF5E6B688</string>
+				</dict>
+				<dict>
+					<key>Action</key>
+					<integer>1001</integer>
+					<key>Activate Applications</key>
+					<false/>
+					<key>Apply to Active Display</key>
+					<false/>
+					<key>Apply to Overlapping Windows</key>
+					<true/>
+					<key>Auto-Trigger</key>
+					<false/>
+					<key>Auto-Trigger Display Count</key>
+					<integer>1</integer>
+					<key>Auto-Trigger: Wake</key>
+					<false/>
+					<key>Generic</key>
+					<true/>
+					<key>Hide Other Applications</key>
+					<false/>
+					<key>Identifier</key>
+					<string>A202CB8A-DE8A-440B-A956-02E1664D67B8</string>
+					<key>Proximity</key>
+					<integer>0</integer>
+					<key>Snapshot</key>
+					<array>
+						<dict>
+							<key>Application Name</key>
+							<string>Safari</string>
+							<key>Available Screen Frame</key>
+							<string>{{0, 50}, {2056, 1235}}</string>
+							<key>Bundle Identifier</key>
+							<string>com.apple.safari</string>
+							<key>Screen Frame</key>
+							<string>{{0, 0}, {2056, 1329}}</string>
+							<key>Window Frame</key>
+							<string>{{0, 50}, {1370, 1235}}</string>
+							<key>Window Subrole</key>
+							<string>AXStandardWindow</string>
+							<key>Window Title</key>
+							<string>Untitled</string>
+						</dict>
+						<dict>
+							<key>Application Name</key>
+							<string>Dictionary</string>
+							<key>Available Screen Frame</key>
+							<string>{{0, 50}, {2056, 1235}}</string>
+							<key>Bundle Identifier</key>
+							<string>com.apple.dictionary</string>
+							<key>Screen Frame</key>
+							<string>{{0, 0}, {2056, 1329}}</string>
+							<key>Window Frame</key>
+							<string>{{1371, 50}, {685, 1235}}</string>
+							<key>Window Subrole</key>
+							<string>AXStandardWindow</string>
+							<key>Window Title</key>
+							<string>Dictionary</string>
+						</dict>
+					</array>
+					<key>Snapshot Screens</key>
+					<array>
+						<string>{{0, 0}, {2056, 1329}}</string>
+					</array>
+					<key>Stubborn</key>
+					<false/>
+					<key>Title</key>
+					<string>Sidebar</string>
+				</dict>
+				<dict>
+					<key>Action</key>
+					<integer>1001</integer>
+					<key>Activate Applications</key>
+					<false/>
+					<key>Apply to Active Display</key>
+					<false/>
+					<key>Apply to Overlapping Windows</key>
+					<true/>
+					<key>Auto-Trigger</key>
+					<false/>
+					<key>Auto-Trigger Display Count</key>
+					<integer>1</integer>
+					<key>Auto-Trigger: Wake</key>
+					<false/>
+					<key>Generic</key>
+					<true/>
+					<key>Hide Other Applications</key>
+					<false/>
+					<key>Identifier</key>
+					<string>D6BA3E73-3C28-4AFA-9958-B233BDF10BBA</string>
+					<key>Proximity</key>
+					<integer>0</integer>
+					<key>Snapshot</key>
+					<array>
+						<dict>
+							<key>Application Name</key>
+							<string>TextEdit</string>
+							<key>Available Screen Frame</key>
+							<string>{{0, 50}, {2056, 1235}}</string>
+							<key>Bundle Identifier</key>
+							<string>com.apple.textedit</string>
+							<key>Screen Frame</key>
+							<string>{{0, 0}, {2056, 1329}}</string>
+							<key>Window Frame</key>
+							<string>{{0, 50}, {1028, 1235}}</string>
+							<key>Window Subrole</key>
+							<string>AXStandardWindow</string>
+							<key>Window Title</key>
+							<string>1.txt</string>
+						</dict>
+						<dict>
+							<key>Application Name</key>
+							<string>TextEdit</string>
+							<key>Available Screen Frame</key>
+							<string>{{0, 50}, {2056, 1235}}</string>
+							<key>Bundle Identifier</key>
+							<string>com.apple.textedit</string>
+							<key>Screen Frame</key>
+							<string>{{0, 0}, {2056, 1329}}</string>
+							<key>Window Frame</key>
+							<string>{{1029, 50}, {1027, 1235}}</string>
+							<key>Window Subrole</key>
+							<string>AXStandardWindow</string>
+							<key>Window Title</key>
+							<string>2.txt</string>
+						</dict>
+					</array>
+					<key>Snapshot Screens</key>
+					<array>
+						<string>{{0, 0}, {2056, 1329}}</string>
+					</array>
+					<key>Stubborn</key>
+					<false/>
+					<key>Title</key>
+					<string>Left &amp; Right</string>
+				</dict>
+				<dict>
+					<key>Action</key>
+					<integer>1001</integer>
+					<key>Activate Applications</key>
+					<false/>
+					<key>Apply to Active Display</key>
+					<false/>
+					<key>Apply to Overlapping Windows</key>
+					<true/>
+					<key>Auto-Trigger</key>
+					<false/>
+					<key>Auto-Trigger Display Count</key>
+					<integer>1</integer>
+					<key>Auto-Trigger: Wake</key>
+					<false/>
+					<key>Generic</key>
+					<true/>
+					<key>Hide Other Applications</key>
+					<false/>
+					<key>Identifier</key>
+					<string>FB4C68CE-293B-4294-B8E9-3809DDF4A1FE</string>
+					<key>Proximity</key>
+					<integer>0</integer>
+					<key>Snapshot</key>
+					<array>
+						<dict>
+							<key>Application Name</key>
+							<string>Finder</string>
+							<key>Available Screen Frame</key>
+							<string>{{0, 50}, {2056, 1235}}</string>
+							<key>Bundle Identifier</key>
+							<string>com.apple.finder</string>
+							<key>Screen Frame</key>
+							<string>{{0, 0}, {2056, 1329}}</string>
+							<key>Window Frame</key>
+							<string>{{0, 668}, {2056, 617}}</string>
+							<key>Window Subrole</key>
+							<string>AXStandardWindow</string>
+							<key>Window Title</key>
+							<string>Desktop</string>
+						</dict>
+						<dict>
+							<key>Application Name</key>
+							<string>Finder</string>
+							<key>Available Screen Frame</key>
+							<string>{{0, 50}, {2056, 1235}}</string>
+							<key>Bundle Identifier</key>
+							<string>com.apple.finder</string>
+							<key>Screen Frame</key>
+							<string>{{0, 0}, {2056, 1329}}</string>
+							<key>Window Frame</key>
+							<string>{{0, 50}, {2056, 617}}</string>
+							<key>Window Subrole</key>
+							<string>AXStandardWindow</string>
+							<key>Window Title</key>
+							<string>Documents</string>
+						</dict>
+					</array>
+					<key>Snapshot Screens</key>
+					<array>
+						<string>{{0, 0}, {2056, 1329}}</string>
+					</array>
+					<key>Stubborn</key>
+					<false/>
+					<key>Title</key>
+					<string>Top &amp; Bottom</string>
+				</dict>
+				<dict>
+					<key>Action</key>
+					<integer>10001</integer>
+					<key>Chain Mode</key>
+					<integer>0</integer>
+					<key>Children</key>
+					<array>
+						<dict>
+							<key>Action</key>
+							<integer>19</integer>
+							<key>Configuration Grid</key>
+							<dict>
+								<key>Configuration Grid: Columns</key>
+								<integer>3</integer>
+								<key>Configuration Grid: Rows</key>
+								<integer>1</integer>
+							</dict>
+							<key>Identifier</key>
+							<string>F82C7F12-D0B6-4185-A51E-A9DF28983876</string>
+							<key>Relative Frame</key>
+							<string>{{0, 0}, {0.33333333333333331, 1}}</string>
+							<key>Title</key>
+							<string>Left Third</string>
+						</dict>
+						<dict>
+							<key>Action</key>
+							<integer>19</integer>
+							<key>Configuration Grid</key>
+							<dict>
+								<key>Configuration Grid: Columns</key>
+								<integer>3</integer>
+								<key>Configuration Grid: Rows</key>
+								<integer>1</integer>
+							</dict>
+							<key>Identifier</key>
+							<string>DD48A90E-1A66-4588-9B23-07F0E4E44C74</string>
+							<key>Relative Frame</key>
+							<string>{{0.33333333333333331, 0}, {0.33333333333333331, 1}}</string>
+							<key>Title</key>
+							<string>Middle Third</string>
+						</dict>
+						<dict>
+							<key>Action</key>
+							<integer>19</integer>
+							<key>Configuration Grid</key>
+							<dict>
+								<key>Configuration Grid: Columns</key>
+								<integer>3</integer>
+								<key>Configuration Grid: Rows</key>
+								<integer>1</integer>
+							</dict>
+							<key>Identifier</key>
+							<string>D9C4D95B-B37C-41D2-9C03-D1211DB73FB7</string>
+							<key>Relative Frame</key>
+							<string>{{0.66666666666666663, 0}, {0.33333333333333337, 1}}</string>
+							<key>Title</key>
+							<string>Right Third</string>
+						</dict>
+						<dict>
+							<key>Action</key>
+							<integer>0</integer>
+							<key>Identifier</key>
+							<string>1BCB7A91-B363-4BF4-9A7C-61FA8B753EBA</string>
+						</dict>
+						<dict>
+							<key>Action</key>
+							<integer>41</integer>
+							<key>Identifier</key>
+							<string>75DEB6BC-F017-44A0-9F4E-44AA17D325B5</string>
+							<key>Loop Through Displays</key>
+							<true/>
+							<key>Move Direction</key>
+							<integer>5</integer>
+							<key>Resize Proportionally</key>
+							<true/>
+						</dict>
+					</array>
+					<key>Identifier</key>
+					<string>D711AEF9-A9D7-4662-9B21-712A07C978A5</string>
+					<key>Title</key>
+					<string>More Examples</string>
+				</dict>
+			</array>
+			<key>Children Expanded</key>
+			<true/>
+			<key>Identifier</key>
+			<string>0455F120-0E5C-4409-AB43-AC70B66CFEAC</string>
+			<key>Title</key>
+			<string>Examples</string>
+		</dict>
+	</array>
+	<key>Grid Spacing</key>
+	<true/>
+	<key>Grid Spacing: Auto-Enabled Default Spacing</key>
+	<true/>
+	<key>Grid Spacing: Gap</key>
+	<integer>1</integer>
+	<key>NSStatusItem Preferred Position com.manytricks.Moom.StatusItem</key>
+	<real>531.0</real>
+	<key>NSWindow Frame Settings Window (4001)</key>
+	<string>2976 660 743 710 1512 369 2560 1410 </string>
+	<key>Palette</key>
+	<dict>
+		<key>3-2</key>
+		<string>C6AD5B3E-64C9-41F5-B1B2-32CCF5E6B688</string>
+		<key>4-2</key>
+		<string>A202CB8A-DE8A-440B-A956-02E1664D67B8</string>
+		<key>5-2</key>
+		<string>D6BA3E73-3C28-4AFA-9958-B233BDF10BBA</string>
+		<key>6-2</key>
+		<string>FB4C68CE-293B-4294-B8E9-3809DDF4A1FE</string>
+		<key>7-2</key>
+		<string>D711AEF9-A9D7-4662-9B21-712A07C978A5</string>
+	</dict>
+	<key>SUEnableAutomaticChecks</key>
+	<false/>
+	<key>SUHasLaunchedBefore</key>
+	<true/>
+	<key>SUSendProfileInfo</key>
+	<false/>
+	<key>Show Intro Popover</key>
+	<false/>
+</dict>
+</plist>

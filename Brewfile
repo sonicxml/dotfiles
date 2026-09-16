@@ -72,6 +72,7 @@ cask "thaw"
 cask "betterdisplay"
 cask "openlogi"
 cask "linearmouse"
+cask "moom"
 
 # Fonts
 cask "font-monaspice-nerd-font"
