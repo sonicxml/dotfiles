@@ -9,7 +9,6 @@ mkdir -p "$HOME/.config/zed"
 mkdir -p "$HOME/.config/mise"
 mkdir -p "$HOME/.config/atuin"
 mkdir -p "$HOME/.config/direnv"
-mkdir -p "$HOME/.config/raycast"
 mkdir -p "$HOME/.config/nvim"
 mkdir -p "$HOME/.config/zsh-abbr"
 
