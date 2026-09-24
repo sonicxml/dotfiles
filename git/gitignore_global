@@ -7,3 +7,5 @@
 .env
 .env.local
 .direnv/
+
+**/.claude/settings.local.json

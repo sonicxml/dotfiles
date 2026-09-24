@@ -1,5 +1,8 @@
 {
-  "theme": "Nord Dark",
+  "project_panel": {
+    "dock": "left"
+  },
+  "theme": "One Light",
   "vim_mode": true,
   "buffer_font_size": 13.0,
   "buffer_font_family": "MonaspiceNe Nerd Font Mono",
@@ -21,8 +24,11 @@
     }
   },
   "agent_servers": {
-    "claude": {
-      "default_model": "opus"
+    "claude-acp": {
+      "type": "registry"
+    },
+    "codex-acp": {
+      "type": "registry"
     }
   },
   "languages": {
